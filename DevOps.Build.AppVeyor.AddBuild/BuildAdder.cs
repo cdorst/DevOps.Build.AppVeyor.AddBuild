@@ -1,3 +1,6 @@
+// Copyright © Christopher Dorst. All rights reserved.
+// Licensed under the GNU General Public License, Version 3.0. See the LICENSE document in the repository root for license information.
+
 using Microsoft.WindowsAzure.Storage.Table;
 using System.Threading.Tasks;
 using static DevOps.Build.AppVeyor.AzureStorageTableLedger.Builder.AppveyorBuildTableHelper;
@@ -11,10 +14,10 @@ namespace DevOps.Build.AppVeyor.AddBuild
         /// <summary>Adds a table entry to an Azure Table named "appveyor"</summary>
         public static async Task AddBuildAsync(string name, string version, string dependencies = null, string fileHashes = null)
         {
-var entry = BuildTableEntry(name, version, dependencies, fileHashes);
-var operation = TableOperation.InsertOrReplace(entry);
-var table = await GetTable();
-await table.ExecuteAsync(operation);;
+            var entry = BuildTableEntry(name, version, dependencies, fileHashes);
+            var operation = TableOperation.InsertOrReplace(entry);
+            var table = await GetTable();
+            await table.ExecuteAsync(operation);;
         }
     }
 }
