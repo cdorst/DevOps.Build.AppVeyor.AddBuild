@@ -11,7 +11,10 @@ namespace DevOps.Build.AppVeyor.AddBuild
         /// <summary>Adds a table entry to an Azure Table named "appveyor"</summary>
         public static async Task AddBuildAsync(string name, string version, string dependencies = null, string fileHashes = null)
         {
-            var entry = BuildTableEntry(name, version, dependencies, fileHashes); var operation = TableOperation.InsertOrReplace(entry); var table = await GetTable(); await table.ExecuteAsync(operation);
+var entry = BuildTableEntry(name, version, dependencies, fileHashes);
+var operation = TableOperation.InsertOrReplace(entry);
+var table = await GetTable();
+await table.ExecuteAsync(operation);;
         }
     }
 }
