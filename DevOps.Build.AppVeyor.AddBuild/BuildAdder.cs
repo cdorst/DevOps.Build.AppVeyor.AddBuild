@@ -17,7 +17,7 @@ namespace DevOps.Build.AppVeyor.AddBuild
             var entry = BuildTableEntry(name, version, dependencies, fileHashes);
             var operation = TableOperation.InsertOrReplace(entry);
             var table = await GetTable();
-            await table.ExecuteAsync(operation);;
+            await table.ExecuteAsync(operation);
         }
     }
 }
